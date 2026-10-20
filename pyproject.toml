@@ -1,0 +1,54 @@
+[project]
+name = "field-shift"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+
+  # backend
+  "django>=5.1",
+  "djangorestframework",
+  "djangorestframework-gis",
+  "drf-spectacular",
+  "django-cors-headers",
+  "django-filter",
+  "psycopg[binary]",
+  "pgvector",
+
+  # etl
+  "pandas",
+  "numpy",
+  "xarray",
+  "rasterio",
+  "geopandas",
+  "pyarrow",
+  "earthaccess",
+  "requests",
+
+  # ml
+  "statsmodels",
+
+  # ai
+  "openai",
+  "pydantic>=2",
+]
+
+[project.optional-dependencies]
+rag = ["sentence-transformers"]   # pulls in PyTorch; add on Days 6-7
+
+[dependency-groups]
+dev = ["pytest", "pytest-django", "ruff", "pre-commit"]
+notebook = ["jupyterlab", "matplotlib"]
+
+[tool.uv]
+package = false                   # don't build/install the project itself
+
+[tool.pytest.ini_options]
+pythonpath = [".", "backend"]
+testpaths = ["etl", "ml", "ai", "backend"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["frontend", "data", "**/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

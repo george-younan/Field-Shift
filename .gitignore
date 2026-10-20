@@ -1,0 +1,41 @@
+# VS Code files
+.vscode/
+
+# Data-related files
+data/*
+!data/.gitkeep
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.pyc
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Environment variables
+.env
+.env.*
+!.env.example
